@@ -1,0 +1,20 @@
+<%= form_for @club do |f| %>
+    <% if @club.errors.any? %>
+        <div id="errors">
+            <h2><%= pluralize(@club.errors.count, "error") %>  prevented this post from saving </h2>
+            <ul>
+                <% @club.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <p>
+        <%= f.label :name %> <br>
+        <%= f.text_field :name %> <br>
+    </p>
+    
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>

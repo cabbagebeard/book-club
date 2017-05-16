@@ -14,4 +14,13 @@ class ClubsController < ApplicationController
             render 'new'
         end
     end
+    
+     def show
+        @club = Club.find(params[:id])
+    end
+    
+    private
+    def club_params
+        params.require(:club).permit(:name)
+    end
 end
