@@ -2,6 +2,26 @@
 /*font-family: 'Raleway', sans-serif;*/
 @import 'normalize';
 
+html {
+    background: #f9f9f9;
+    font-family: 'Raleway', sans-serif;
+}
+
 .navbar-fixed-top {
     font-family: 'Roboto Slab', sans-serif;
+}
+
+.row {
+    background: #f9f9f9;
+}
+
+.navigation {
+    background: #e0e0e0;
+    padding-bottom: 80px;
+    border: 1px solid #d9d9d9;
+    fixed: right;
+}
+
+.club_name {
+    font-weight: 700;
 }

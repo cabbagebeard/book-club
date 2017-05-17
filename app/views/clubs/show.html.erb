@@ -1,8 +1,32 @@
-<div class="container">
+<div class="fluid-container">
     <div class="row">
-        <div class="main_content text-center">
-            <h1>Current Book:</h1>
-            
+        <div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
+            <br>
+        </div>
+        <div class="main text-center col-lg-4 col-md-4 col-sm-5">
+            <h1>Current Reading:</h1>
+            <img src="https://dummyimage.com/300x300/000/fff">
+        </div>
+        <div class="main text-left col-lg-4 col-md-4 col-sm-5">
+            <h2>Description:</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam felis, ultricies sed efficitur id, molestie sed nulla. Pellentesque rutrum vulputate commodo. Cras sagittis ligula quam, id posuere purus hendrerit non. In eget interdum orci, id dignissim sapien. Maecenas interdum, magna ac ultrices laoreet, massa risus ornare sapien, quis efficitur massa nisl quis velit. Integer interdum dui sit amet arcu dapibus, nec facilisis elit euismod. Integer sit amet magna vitae nulla porttitor tincidunt. Vivamus accumsan elit nisl, sit amet tincidunt erat porta id. Nunc sollicitudin sit amet tortor molestie ultricies. Praesent molestie elit urna, sed convallis mi venenatis at. Phasellus commodo dolor turpis, eget aliquet elit interdum ut. Aliquam vehicula tristique porttitor.
+
+Sed placerat id nulla at sodales. Sed eget imperdiet lacus, non pretium odio. Mauris imperdiet purus justo, ac ultrices nunc aliquam nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus blandit a tortor ac mollis. Vivamus nibh risus, molestie id rutrum ac, mattis nec erat. Fusce vel lectus eu risus efficitur posuere sed eget eros.</p>
+        </div>
+        
+        <div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
+            <br>
+        </div>
+        
+        <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs navigation">
+            <div class="text-center club_name">
+                <br>
+                <h2><%= @club.name %></h2>
+                <br><br>
+                <img src="https://dummyimage.com/100x100/000/fff">
+                <h2>Last Book:</h2>
+                <img src="https://dummyimage.com/100x100/000/fff">
+            </div>
         </div>
     </div>
 </div>
