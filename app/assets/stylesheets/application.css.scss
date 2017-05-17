@@ -4,15 +4,15 @@
 
 html {
     background: #f9f9f9;
-    font-family: 'Raleway', sans-serif;
 }
 
 .navbar-fixed-top {
-    font-family: 'Roboto Slab', sans-serif;
+    font-family: 'Droid Serif', serif;
 }
 
 .fluid-container {
     background: #f9f9f9;
+    font-family: 'Lato', serif;
 }
 
 .navigation {
@@ -21,6 +21,15 @@ html {
     border: 1px solid #d9d9d9;
 }
 
-.club_name {
-    font-weight: 700;
+.new_club {
+    #club_name {
+        input {
+            width: 390px;
+            height: 30px;
+        }
+    }
+    textarea {
+        width: 530px;
+        height: 200px;
+    }
 }

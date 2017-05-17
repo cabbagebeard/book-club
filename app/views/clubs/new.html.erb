@@ -1,24 +1,31 @@
-<%= form_for @club do |f| %>
-    <% if @club.errors.any? %>
-        <div id="errors">
-            <h2><%= pluralize(@club.errors.count, "error") %>  prevented this post from saving </h2>
-            <ul>
-                <% @club.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
-    <p>
-        <%= f.label :name %> <br>
-        <%= f.text_field :name %> <br>
-    </p>
-    <p>
-        <%= f.label :description %> <br>
-        <%= f.text_area :description %> <br>
-    </p>
+<div class="fluid-container text-center new_club">
+    <br><br>
+    <h1>New Club</h1>
+    <br><br>
     
-    <p>
-        <%= f.submit %>
-    </p>
-<% end %>
+    <%= form_for @club do |f| %>
+        <% if @club.errors.any? %>
+            <div id="errors">
+                <h2><%= pluralize(@club.errors.count, "error") %>  prevented this post from saving </h2>
+                <ul>
+                    <% @club.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+        <h4 id="club_name">
+            <%= f.label :name %> <br>
+            <%= f.text_field :name %> <br>
+        </h4>
+        <br>
+        <h4>
+            <%= f.label :description %> <br>
+            <%= f.text_area :description %> <br>
+        </h4>
+        <br>
+        <p>
+            <%= f.submit %>
+        </p>
+    <% end %>
+</div>
