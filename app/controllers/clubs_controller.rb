@@ -3,11 +3,11 @@ class ClubsController < ApplicationController
     end
     
     def new
-        @club = Club.new
+        @club = current_user.clubs.build
     end
     
     def create
-        @club = Club.new(club_params)
+        @club = current_user.clubs.build(club_params)
         if @club.save
             redirect_to @club
         else
