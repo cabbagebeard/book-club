@@ -2,22 +2,17 @@
 /*font-family: 'Raleway', sans-serif;*/
 @import 'normalize';
 
-html {
-    background: #f9f9f9;
-}
-
 .navbar-fixed-top {
     font-family: 'Droid Serif', serif;
 }
 
 .fluid-container {
-    background: #f9f9f9;
     font-family: 'Lato', serif;
 }
 
 .navigation {
     background: #e0e0e0;
-    padding-bottom: 80px;
+    padding-bottom: 85px;
     border: 1px solid #d9d9d9;
 }
 
@@ -34,7 +29,27 @@ html {
     }
 }
 
-.notice, .alert {
+.devise_alerts {
+    padding-top:20px;
     text-align: center;
     font-size: 1.5em;
+}
+
+#sign_up {
+    text-align: center;
+    input {
+        width: 210px;
+        height: 35px;
+        font-size: 1.1em;
+    }
+}
+
+.first_name_field, .last_name_field {
+
+}
+
+.username_field {
+    input {
+        
+    }
 }
