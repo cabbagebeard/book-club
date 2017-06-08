@@ -38,18 +38,18 @@
 #sign_up {
     text-align: center;
     input {
-        width: 210px;
+        width: 250px;
         height: 35px;
         font-size: 1.1em;
     }
-}
-
-.first_name_field, .last_name_field {
-
-}
-
-.username_field {
-    input {
-        
+    .checkbox {
+        input {
+            width: 18px;
+            height: 18px;
+        }
     }
+}
+
+#sign_in {
+    text-align: center;
 }
