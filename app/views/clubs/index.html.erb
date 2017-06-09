@@ -1,1 +1,8 @@
-<h1>clubs#index</h1>
+<div class="fluid-container">
+    
+    <h1>My Clubs</h1>
+    <!-- CREATE MAPPING TO DIFFERENTIATE ADMINS FROM JUST MEMBERS -->
+    <% @club.each do |club| %>
+        <%= link_to club.name, club %>
+    <% end %>
+</div>

@@ -1,5 +1,7 @@
 class ClubsController < ApplicationController
+    
     def index
+        @club = Club.all
     end
     
     def new
@@ -15,7 +17,7 @@ class ClubsController < ApplicationController
         end
     end
     
-     def show
+    def show
         @club = Club.find(params[:id])
     end
     
