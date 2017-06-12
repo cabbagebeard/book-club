@@ -12,7 +12,10 @@ class ClubsController < ApplicationController
         @club = current_user.clubs.build(club_params)
         current_user.clubs << @club
         
-        @club.admins = current_user
+        ad = @club.memberships.find_by_user_id(current_user.id)
+        ad.admin = true
+        ad.save!
+        
         if @club.save
             redirect_to @club
         else
