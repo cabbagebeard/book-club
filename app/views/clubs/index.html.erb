@@ -4,11 +4,20 @@
         <% current_user.memberships.each do |m| %>
         <% club = current_user.clubs.find(m.club_id) %>
             <% if m.admin == true then %>
-                <%= link_to club.name, club  %> | Admin
-                <br>
+            <div class="col-md-4">
+                <h3><%= link_to club.name, club  %></h3>
+                <p><strong>Admin</strong></p>
+                <h5>Club Description:</h5>
+                <p><%= club.description %></p>
+            </div>
+            <br><br>
             <% elsif m.admin == false then %>
-                <%= link_to club.name, club  %> | Member
-                <br>
+            <div class="col-md-4">
+                <h3><%= link_to club.name, club  %></h3>
+                <p><strong>Member</strong></p>
+                <h5>Club Description:</h5>
+                <p><%= club.description %></p>
+            </div>
             <% end %>
         <% end %>
     </div>
