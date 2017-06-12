@@ -3,7 +3,7 @@ class CreateClubs < ActiveRecord::Migration
     create_table :clubs do |t|
       t.text :name
       t.text :description
-      
+
       t.timestamps null: false
     end
   end

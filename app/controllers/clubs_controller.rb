@@ -10,6 +10,9 @@ class ClubsController < ApplicationController
     
     def create
         @club = current_user.clubs.build(club_params)
+        current_user.clubs << @club
+        
+        @club.admins = current_user
         if @club.save
             redirect_to @club
         else
