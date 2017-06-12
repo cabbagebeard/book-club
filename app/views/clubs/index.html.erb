@@ -1,14 +1,15 @@
 <div class="fluid-container">
-    
-    <h1>Clubs I admin for</h1>
-    <% current_user.memberships.each do |m| %>
-        <% if m.admin == true then %>
-            <% admin_club = current_user.clubs.find(m.club_id) %>
-            <%= link_to admin_club.name, admin_club  %>
+    <div id="my_clubs">
+        <h1>My Clubs</h1>
+        <% current_user.memberships.each do |m| %>
+        <% club = current_user.clubs.find(m.club_id) %>
+            <% if m.admin == true then %>
+                <%= link_to club.name, club  %> | Admin
+                <br>
+            <% elsif m.admin == false then %>
+                <%= link_to club.name, club  %> | Member
+                <br>
+            <% end %>
         <% end %>
-    <% end %>
-    
-    <h1>Clubs I'm a member of</h1>
-
-    
+    </div>
 </div>
