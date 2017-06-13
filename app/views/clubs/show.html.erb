@@ -1,8 +1,9 @@
 <div class="fluid-container">
+    <% if @club.memberships.find_by_user_id(current_user.id).admin == true then %>
+        <p> Current user is admin</p>
+    <% end %>
+    
     <div class="row">
-        <div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
-            <br>
-        </div>
         <div class="main text-center col-lg-4 col-md-4 col-sm-5">
             <h1>Current Reading:</h1>
             <img src="https://dummyimage.com/300x300/000/fff">
@@ -27,6 +28,9 @@ Sed placerat id nulla at sodales. Sed eget imperdiet lacus, non pretium odio. Ma
                 <h2>Last Book:</h2>
                 <img src="https://dummyimage.com/100x100/000/fff">
             </div>
+        </div>
+        <div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
+            <br>
         </div>
     </div>
 </div>
