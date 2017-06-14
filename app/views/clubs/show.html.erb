@@ -4,6 +4,7 @@
 
         <% if @club.memberships.find_by_user_id(current_user.id).admin == true then %>
             <p>You are an admin of this book club.</p>
+            <%= link_to "Access admin controls", edit_club_path %>
         <% end %>
     </div>
     
