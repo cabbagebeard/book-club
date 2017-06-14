@@ -30,6 +30,13 @@ class ClubsController < ApplicationController
     
     def edit
         @club = Club.find(params[:id])
+        ad = @club.memberships.find_by_user_id(current_user.id)
+        if ad.admin = true then
+            render 'edit'
+        else
+            flash[:alert] = "You are not an admin of this club."
+            redirect_to @club
+        end
     end
     
     private
