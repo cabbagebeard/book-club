@@ -1,19 +1,28 @@
 development:
   adapter: postgresql
   database: database_development
+  encoding: SQL_ASCII
   pool: 5
   timeout: 5000
   host: localhost
+  user: kevin
+  password: password
 test:
   adapter: postgresql
   database: database_test
+  encoding: SQL_ASCII
   pool: 5
   timeout: 5000
   host: localhost
+  user: kevin
+  password: password
 
 production:
   adapter: postgresql
   database: database_production
+  encoding: SQL_ASCII
   pool: 5
   timeout: 5000
   host: localhost
+  user: kevin
+  password: password
