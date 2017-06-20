@@ -1,0 +1,11 @@
+<script>
+    var GoodreadsURL =  "https://www.goodreads.com/book/title" +
+                        "?title=Animal+Farm"
+                        "&key=PeUfTZJVJtpezUI4cFYElA";
+                        
+    $.getJSON(GoodreadsURL, function(GoodreadsData) {
+		if (GoodreadsData.response) {
+			console.log(GoodreadsData.response);
+		};
+    });
+</script>
