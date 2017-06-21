@@ -8,6 +8,7 @@
 git clone https://github.com/cabbagebeard/book-club.git
 cd book-club
 bundle install
+sudo service postgresql start
 rake db:create
 rake db:migrate
 rails s
