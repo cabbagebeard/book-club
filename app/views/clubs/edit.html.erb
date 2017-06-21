@@ -1,9 +1,23 @@
 <div class="fluid-container">
-    <% if @club.memberships.find_by_user_id(current_user.id).admin == false then %>
-        <p>You are not an admin of this book club.</p>
-        <%= link_to "Go back to club page", @club %>
-        <% else %>
-        <h1>Admin control page</h1>
-        <p>This is where you can start new books and edit club settings and members.</p>
-    <% end %>
+    <div id="club_admin">
+        <% if @club.memberships.find_by_user_id(current_user.id).admin == false then %>
+        
+            <p>You are not an admin of this book club.</p>
+            <%= link_to "Go back to club page", @club %>
+            
+            <% else %>
+            
+            <h1>Admin control page</h1>
+            <br>
+            <p>This is where you can start new books and edit club settings and members.</p>
+            <br><br>
+            
+            <%= button_to "Add book", new_book_path %>
+            
+            <br><br> 
+            
+            <h1>Members</h1>
+            
+        <% end %>
+    </div>
 </div>
