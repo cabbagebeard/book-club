@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'rmagick', '~> 2.15', '>= 2.15.4'
+gem 'rubocop', '~> 0.49.1'
+gem 'rake-compiler', '~> 1.0', '>= 1.0.4'
+gem 'rspec', '~> 3.6'
+gem 'paperclip'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
