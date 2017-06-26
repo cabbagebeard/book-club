@@ -1,9 +1,29 @@
-/*font-family: 'Roboto Slab', serif;*/
-/*font-family: 'Raleway', sans-serif;*/
 @import 'normalize';
 
 .navbar-fixed-top {
-    font-family: 'Droid Serif', serif;
+    font-family: 'Exo', Arial, sans-serif;
+    font-weight: 700;
+}
+
+.navbar-toggle .icon-bar {
+    background: #537D8D;
+}
+
+ul .navbar-right {
+    background: #537D8D;
+}
+
+.navbar-collapse {
+    background: white;
+    border-bottom:  #537D8D 1px solid;
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+}
+
+.navbar-header {
+    border-bottom:  #537D8D 1px solid;
+    margin-right: -15px !important;
+    margin-left: -15px !important;
 }
 
 .fluid-container {
@@ -11,9 +31,21 @@
 }
 
 .navigation {
-    background: #e0e0e0;
+    background: #454A5B;
     padding-bottom: 85px;
-    border: 1px solid #d9d9d9;
+    font-weight: 700;
+}
+
+.navbar-brand {
+    padding: 15px 50px !important;
+}
+.brand {
+    background: #537D8D;
+    color: white;
+
+    &:hover {
+        color: #DAF5FF;
+    }
 }
 
 .new_club {
