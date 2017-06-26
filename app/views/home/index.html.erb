@@ -1,6 +1,8 @@
 <h1>Welcome home.</h1>
 
-<%= image_tag(current_user.avatar.url(:thumb)) %>
+<% if current_user %>
+    <%= image_tag(current_user.avatar.url(:thumb)) %>
+<% end %>
 
 <br><br><br><br><br><br><br>
 <h3>This is where featured readings and featured public clubs would go.</h3>
