@@ -9,8 +9,8 @@
     background: #537D8D;
 }
 
-ul .navbar-right {
-    background: #537D8D;
+.navbar li a {
+    margin-right: 40px !important;
 }
 
 .navbar-collapse {
@@ -24,6 +24,11 @@ ul .navbar-right {
     border-bottom:  #537D8D 1px solid;
     margin-right: -15px !important;
     margin-left: -15px !important;
+}
+
+.dropdown-menu li a, .btn {
+    font-weight: 700 !important;
+    color: #337ab7 !important;
 }
 
 .fluid-container {
