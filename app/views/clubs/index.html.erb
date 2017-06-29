@@ -1,8 +1,15 @@
 <div class="fluid-container">
     <div id="my_clubs">
         <h1>My Clubs</h1>
-        <% current_user.memberships.each do |m| %>
+        <% memberships = current_user.memberships %>
+        
+        <% if memberships.count == 0 %>
+            <p>Looks like you aren't a member of any clubs yet.</p>
+        <% end %>
+        
+        <% memberships.each do |m| %>
         <% club = current_user.clubs.find(m.club_id) %>
+            
             <% if m.admin == true then %>
             <div class="col-md-4">
                 <h3><%= link_to club.name, club  %></h3>
@@ -11,6 +18,7 @@
                 <p><%= club.description %></p>
             </div>
             <br><br>
+            
             <% elsif m.admin == false then %>
             <div class="col-md-4">
                 <h3><%= link_to club.name, club  %></h3>
@@ -19,6 +27,7 @@
                 <p><%= club.description %></p>
             </div>
             <% end %>
+            
         <% end %>
     </div>
 </div>
