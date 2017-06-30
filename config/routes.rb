@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     resources :clubs, :books
     root "home#index"
     
-    get '*unmatched_route', to: 'error#not_found'
+    get '*unmatched_route', to: 'errors#not_found'
 end
