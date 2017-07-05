@@ -1,10 +1,19 @@
 <div class="fluid-container">
     
-    <!--
-    <%= form_tag books_path :method => "get" do %>
-        <%= text_field_tag :search, params[:search] %>
+    <%= form_tag(books_path, method: :get) do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Authors" %>
         <%= submit_tag "Search" %>
     <% end %>
-    -->
+    
+    <% @books.each do |book| %>
+    <ul>
+        <li><%= book.author %></li>
+        <li><%= book.title %></li>
+        <%= link_to "See this book", book %>
+    </ul>
+    <% end %>
+    
+    
+    
     
 </div>
