@@ -2,8 +2,8 @@ class BooksController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        if params[:search].present?
-            @books = Book.where('author LIKE ?', "%#{params[:search]}%")
+        if params[:search].present? and params[:search].length > 3
+            @books = Book.where('LOWER(author) LIKE ?', "%#{params[:search].downcase}%")
         end
     end
     
