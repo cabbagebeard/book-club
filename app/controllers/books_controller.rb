@@ -2,10 +2,8 @@ class BooksController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @books = if params[:search]
-            Book.where('author LIKE ?', "%#{params[:search]}%")
-        else
-            flash[:error] = "We couldn't find any books matching that author."
+        if params[:search].present?
+            @books = Book.where('author LIKE ?', "%#{params[:search]}%")
         end
     end
     
