@@ -2,13 +2,13 @@ class BooksController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        if params[:search].present? and params[:search].length > 3
-            @books = GoogleBooks.search("#{params[:search].downcase}", {:order_by => 'relevance'})
-        end
     end
     
     def new
-        @book = Book.new
+        @club = Club.find(params[:club_id])
+        if params[:search].present? and params[:search].length > 3
+            @books = GoogleBooks.search("#{params[:search].downcase}", {:order_by => 'relevance'})
+        end
     end
     
     def create

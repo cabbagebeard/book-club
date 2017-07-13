@@ -39,6 +39,11 @@ class ClubsController < ApplicationController
         end
     end
     
+    def new_book
+        @club = @club = Club.find(params[:id])
+        render 'add_book'
+    end
+    
     private
     def club_params
         params.require(:club).permit(:name, :description)
