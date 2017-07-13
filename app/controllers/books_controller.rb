@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
     def index
         if params[:search].present? and params[:search].length > 3
-            @books = Book.where('LOWER(author) LIKE ?', "%#{params[:search].downcase}%")
+            @books = GoogleBooks.search("#{params[:search].downcase}", {:order_by => 'relevance'})
         end
     end
     
