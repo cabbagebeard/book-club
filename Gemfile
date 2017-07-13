@@ -28,6 +28,7 @@ gem 'rubocop', '~> 0.49.1'
 gem 'rake-compiler', '~> 1.0', '>= 1.0.4'
 gem 'rspec', '~> 3.6'
 gem 'paperclip'
+gem 'googlebooks'
 
 
 # Use ActiveModel has_secure_password
