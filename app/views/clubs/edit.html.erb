@@ -12,7 +12,7 @@
             <p>This is where you can start new books and edit club settings and members.</p>
             <br><br>
             
-            <%= button_to "Add book", new_book_path %>
+            <%= button_to "Add book", new_club_book_path(:club_id => @club.id), :method => :get %>
             
             <br><br> 
             
