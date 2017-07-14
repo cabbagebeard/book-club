@@ -28,17 +28,29 @@ class BooksController < ApplicationController
         @book.description = chosen.description
         @book.author = chosen.authors
         @book.isbn = chosen.isbn
+        @book.image = chosen.image_link(:zoom => 6)
         @book.save
         
         @book.clubs << @club
         @club.books << @book
         
         if @book.save
+            make_prev = @club.readings.where(current: true).first
+            if make_prev then
+                make_prev.current = false
+                make_prev.save
+            end
+            
+            set_current = @club.readings.find_by_book_id(@book.id)
+            set_current.current = true
+            set_current.save
             redirect_to @club
         else
             render 'new'
         end
     end
+    
+
     
     def show
         @book = Book.find(params[:id])
