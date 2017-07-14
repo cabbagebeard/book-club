@@ -5,8 +5,6 @@ Rails.application.routes.draw do
       resources :books
     end
     
-    resources :books
-    
     root "home#index"
 
     get '*unmatched_route', to: 'errors#not_found'
