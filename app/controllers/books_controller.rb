@@ -16,13 +16,8 @@ class BooksController < ApplicationController
         @club = Club.find(params[:club_id])
         
         isbn = params[:isbn]
-        
-        puts isbn
-        
         chosen = GoogleBooks.search(isbn).first
-        
-        puts chosen.title
-        
+    
         @book = Book.new
         @book.title = chosen.title
         @book.description = chosen.description
