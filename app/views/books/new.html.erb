@@ -1,8 +1,9 @@
-<%= @club.name %>
 <div class="fluid-container text-center">
     <div class="container">
         <div class="row">
+            <h1>Choose a new reading for <%= @club.name %></h1>
             <div class="col-md-offset-4 col-md-4 col-md-offset-4">
+                <br>
                 <%= form_tag(new_club_book_path, method: :get) do %>
                     <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search by Title or Author" %>
                     <%= submit_tag "Search", class: "btn btn-primary btn-md", style: "margin-top: 5px" %>
