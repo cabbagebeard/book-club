@@ -42,8 +42,8 @@
     font-family: 'Lato', serif;
 }
 
-.navigation {
-    background: #454A5B;
+.prev-book-sidebar {
+    background: #ebf0fa;
     padding-bottom: 85px;
     font-weight: 700;
 }
@@ -183,4 +183,9 @@
 .book-cover {
     width: 40%;
     height: 40%;
+}
+
+.prev-book-cover {
+    width: 50%;
+    height: 50%;
 }

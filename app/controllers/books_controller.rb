@@ -26,7 +26,6 @@ class BooksController < ApplicationController
         @book.image = chosen.image_link(:zoom => 6)
         @book.save
         
-        @book.clubs << @club
         @club.books << @book
         
         if @book.save

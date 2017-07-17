@@ -30,14 +30,15 @@
             <br>
         </div>
         
-        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs navigation">
+        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs prev-book-sidebar">
             <div class="text-center club_name">
                 <br>
                 <h2><%= @club.name %></h2>
-                <br><br>
-                <img src="https://dummyimage.com/100x100/000/fff">
+                <% last = @club.books[-2] %>
                 <h2>Last Book:</h2>
-                <img src="https://dummyimage.com/100x100/000/fff">
+                <p><em><%= last.title %></em></p>
+                <p>By: <%= last.author %></p>
+                <img src=<%= last.image %> class="img-responsive center-block prev-book-cover">
             </div>
         </div>
         <div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
