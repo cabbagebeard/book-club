@@ -36,9 +36,11 @@
                 <h2><%= @club.name %></h2>
                 <% last = @club.books[-2] %>
                 <h2>Last Book:</h2>
-                <p><em><%= last.title %></em></p>
-                <p>By: <%= last.author %></p>
-                <img src=<%= last.image %> class="img-responsive center-block prev-book-cover">
+                <a href="/clubs/<%= @club.id%>/books/<%= last.id %>">
+                    <p><em><%= last.title %></em></p>
+                    <p>By: <%= last.author %></p>
+                    <img src=<%= last.image %> class="img-responsive center-block prev-book-cover">
+                </a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
