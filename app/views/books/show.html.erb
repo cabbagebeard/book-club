@@ -1,10 +1,13 @@
 <div class="container">
     <div class="row">
-        <div class="text-center col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-6 col-md-6 col-sm-6 col-lg-offset-3">
+        <div class="text-center col-lg-6 col-md-6 col-sm-6">
             <h5><em><%= @book.title %></em></h5>
             <p>By: <%= @book.author %></p>
             <p>Discussion started: <%= @book.created_at.strftime("%b %d") %></p>
             <img src=<%=@book.image %> class="img-responsive center-block book-cover">
+        </div>
+        <div class="col-lg-6">
+            This is where discussions will be
         </div>
     </div>
 </div>
