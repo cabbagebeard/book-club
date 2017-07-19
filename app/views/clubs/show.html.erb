@@ -34,13 +34,17 @@
             <div class="text-center club_name">
                 <br>
                 <h2><%= @club.name %></h2>
-                <% last = @club.books[-2] %>
-                <h2>Last Book:</h2>
-                <a href="/clubs/<%= @club.id%>/books/<%= last.id %>">
-                    <p><em><%= last.title %></em></p>
-                    <p>By: <%= last.author %></p>
-                    <img src=<%= last.image %> class="img-responsive center-block prev-book-cover">
-                </a>
+                <% if @club.readings.count >= 2 %>
+                    <% last = @club.books[-2] %>
+                    <h2>Last Book:</h2>
+                    <a href="/clubs/<%= @club.id%>/books/<%= last.id %>">
+                        <p><em><%= last.title %></em></p>
+                        <p>By: <%= last.author %></p>
+                        <img src=<%= last.image %> class="img-responsive center-block prev-book-cover">
+                    </a>
+                <% else %>
+                    <p>This is where your previous reading will be.</p>
+                <% end %>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
