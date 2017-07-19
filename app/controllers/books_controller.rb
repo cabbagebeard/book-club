@@ -46,6 +46,8 @@ class BooksController < ApplicationController
     
     def show
         @book = Book.find(params[:id])
+        @club = Club.find(params[:club_id])
+        @reading = @club.readings.where(:book_id => @book.id).first
     end
     
     private
