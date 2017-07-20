@@ -1,7 +1,7 @@
 <% @title = @book.title %>
 <div class="container">
     <div class="row">
-        <div class="text-center col-lg-6 col-md-6 col-sm-6">
+        <div class="text-center col-lg-4 col-md-6 col-sm-6">
             <h5><em><%= @book.title %></em></h5>
             <p>By: <%= @book.author %></p>
             <p>Discussion started: <%= @book.created_at.strftime("%b %d") %></p>
@@ -11,6 +11,14 @@
             <h3>Add Discussion</h3>
             <%= @club.name %>
             <%= @reading.id %>
+        </div>
+        
+        <div class="col-lg-6">
+            <h2>Discussions</h2>
+            <% @reading.discussions.each do |d|%>
+                <h4><%= d.title %></h4>
+                <p><%= d.body %></p>
+            <% end %>
         </div>
     </div>
 </div>
