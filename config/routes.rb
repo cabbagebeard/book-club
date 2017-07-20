@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   
     resources :clubs do
-      resources :books
+      resources :books do
+        resources :discussions
+      end
     end
     
     root "home#index"
