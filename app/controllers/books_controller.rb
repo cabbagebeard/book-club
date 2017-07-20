@@ -48,6 +48,8 @@ class BooksController < ApplicationController
         @book = Book.find(params[:id])
         @club = Club.find(params[:club_id])
         @reading = @club.readings.where(:book_id => @book.id).first
+        
+        @discussion = Discussion.new
     end
     
     private

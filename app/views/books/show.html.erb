@@ -11,6 +11,15 @@
             <h3>Add Discussion</h3>
             <%= @club.name %>
             <%= @reading.id %>
+            <%= form_for [@club, @book, @discussion] do |f| %>
+                <%= f.label :title %>
+                <%= f.text_field :title %>
+                <br>
+                <%= f.label :body %> 
+                <%= f.text_field :body %>
+                
+                <%= f.submit %>
+            <% end %>
         </div>
         
         <div class="col-lg-6">
