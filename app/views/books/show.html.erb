@@ -7,19 +7,16 @@
             <p>Discussion started: <%= @book.created_at.strftime("%b %d") %></p>
             <img src=<%=@book.image %> class="img-responsive center-block book-cover">
         </div>
-        <div class="col-lg-6">
-            <h3>Add Discussion</h3>
-            <%= @club.name %>
-            <%= @reading.id %>
-            <%= form_for [@club, @book, @discussion] do |f| %>
-                <%= f.label :title %>
-                <%= f.text_field :title %>
-                <br>
-                <%= f.label :body %> 
-                <%= f.text_field :body %>
-                
-                <%= f.submit %>
-            <% end %>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+                <%= form_for [@club, @book, @discussion] do |f| %>
+                    <h3>Add Discussion</h3>
+                    <%= f.text_area :title, class: "form-control", rows: "1", placeholder: "Title" %>
+               
+                    <br>
+                    <%= f.text_area :body, class: "form-control", rows: "8", placeholder: "Write a discussion.." %>
+                    
+                    <%= f.submit "Create Discussion", class: "btn btn-primary btn-md", style: "margin-top: 5px" %>
+                <% end %>
         </div>
         
         <div class="col-lg-6">
