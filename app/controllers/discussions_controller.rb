@@ -14,6 +14,18 @@ class DiscussionsController < ApplicationController
         end
     end
     
+    def show
+        @club = Club.find(params[:club_id])
+        @book = Book.find(params[:book_id])
+        @reading = Reading.find(params[:book_id])
+        
+        @discussion = Discussion.find(params[:id])
+        
+        if @discussion.reading_id != @reading.id and @reading.club_id != @club.id
+            redirect_to root_path
+        end
+    end
+    
     private
     def discussion_params
         params.require(:discussion).permit(:title, :body)
