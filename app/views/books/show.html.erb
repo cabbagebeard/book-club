@@ -8,6 +8,7 @@
             <img src=<%=@book.image %> class="img-responsive center-block book-cover">
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
+            <% if @reading.current? %>
                 <%= form_for [@club, @book, @discussion] do |f| %>
                     <h3>Add Discussion</h3>
                     <%= f.text_area :title, class: "form-control", rows: "1", placeholder: "Title" %>
@@ -17,6 +18,10 @@
                     
                     <%= f.submit "Create Discussion", class: "btn btn-primary btn-md", style: "margin-top: 5px" %>
                 <% end %>
+                <% else %>
+                <br><br><br>
+                <h4 style="color: red">Discussions are no longer being created for this book.</h4>
+            <% end %>
         </div>
     </div>
     <br>
