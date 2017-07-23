@@ -8,6 +8,7 @@ class DiscussionsController < ApplicationController
         
         @discussion = @reading.discussions.build(discussion_params)
         @reading.discussions << @discussion
+        @discussion.user_id = current_user.id
         
         if @discussion.save
             redirect_to([@club, @book])
@@ -28,6 +29,6 @@ class DiscussionsController < ApplicationController
     
     private
     def discussion_params
-        params.require(:discussion).permit(:title, :body)
+        params.require(:discussion).permit(:title, :body, :user_id)
     end
 end
