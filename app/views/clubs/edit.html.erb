@@ -1,5 +1,5 @@
 <% @title = @club.name + " Settings" %>
-<div class="fluid-container">
+<div class="container">
     <div id="club_admin">
         <% if @club.memberships.find_by_user_id(current_user.id).admin == false then %>
         
