@@ -6,10 +6,12 @@
             <p>By: <%= @book.author %></p>
             <p>Discussion started: <%= @book.created_at.strftime("%b %d") %></p>
             <img src=<%=@book.image %> class="img-responsive center-block book-cover">
-            <h3>Description:</h3>
-            <p class="text-muted">
-                <%= @book.description %>
-            </p>
+            <% if @book.description? %>
+                <h3>Description:</h3>
+                <p class="text-muted">
+                    <%= @book.description %>
+                </p>
+            <% end %>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
             <% if @club.memberships.find_by_user_id(current_user.id).admin == true then %>
@@ -51,6 +53,8 @@
                         <%= d. body %>
                         <br>
                         <%= link_to "Go to discussion", club_book_discussion_path(:book_id => @reading.book.id, :id => d.id) %>
+                        <hr>
+                        <%= button_to "Add Comment",  club_book_discussion_comments_path(:book_id => @reading.book.id, :discussion_id => d.id), action: "create" %>
                     </div>
                  </div>
             <% end %>
