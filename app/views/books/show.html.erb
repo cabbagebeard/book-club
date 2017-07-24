@@ -6,9 +6,12 @@
             <p>By: <%= @book.author %></p>
             <p>Discussion started: <%= @book.created_at.strftime("%b %d") %></p>
             <img src=<%=@book.image %> class="img-responsive center-block book-cover">
+            <h3>Description:</h3>
+            <p class="text-muted">
+                <%= @book.description %>
+            </p>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
-            
             <% if @club.memberships.find_by_user_id(current_user.id).admin == true then %>
                 <% if @reading.current? %>
                     <%= form_for [@club, @book, @discussion] do |f| %>
