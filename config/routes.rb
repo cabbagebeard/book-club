@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   
     resources :clubs do
       resources :books do
-        resources :discussions
+        resources :discussions do
+          resources :comments
+        end
       end
     end
     
