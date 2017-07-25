@@ -54,7 +54,12 @@
                         <br>
                         <%= link_to "Go to discussion", club_book_discussion_path(:book_id => @reading.book.id, :id => d.id) %>
                         <hr>
-                        <%= button_to "Add Comment",  club_book_discussion_comments_path(:book_id => @reading.book.id, :discussion_id => d.id), action: "create" %>
+                        
+                        <p class="text-muted"><%= d.comments.count %> comments</p>
+                        
+                        <button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
+                        </button>
                     </div>
                  </div>
             <% end %>
