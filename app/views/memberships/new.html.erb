@@ -5,7 +5,7 @@
         <div class="col-md-offset-4 col-md-4 col-md-offset-4">
             <br>
             <%= form_tag(new_club_member_path, method: :get) do %>
-                <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "Search by username" %>
+                <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Search by email" %>
                 <%= submit_tag "Search", class: "btn btn-primary btn-md", style: "margin-top: 10px; display: none" %>
             <% end %>
         </div>
@@ -16,7 +16,9 @@
             <ul class="list-group">
                 <li class="list-group-item">
                     <%= link_to( "Add this member", club_members_path(:action => "create", :user_id => user.id), :method => :post) %>
-                    <strong>Username: <%= user.username %></strong> <br>
+                    <br>
+                    Username: <%= user.username %>
+                    <br>
                     First name: <%= user.first_name %>
                 </li>
             </ul>
