@@ -18,6 +18,7 @@
             <br><br> 
             
             <h1>Members</h1>
+            <%= button_to "Add member", new_club_member_path(:club_id => @club.id), :method => :get %>
             
         <% end %>
     </div>

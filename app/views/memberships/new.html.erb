@@ -1,0 +1,25 @@
+<% @title = "Add Member" %>
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Adding members for <%= @club.name %></h1>
+        <div class="col-md-offset-4 col-md-4 col-md-offset-4">
+            <br>
+            <%= form_tag(new_club_member_path, method: :get) do %>
+                <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "Search by username" %>
+                <%= submit_tag "Search", class: "btn btn-primary btn-md", style: "margin-top: 10px; display: none" %>
+            <% end %>
+        </div>
+    </div>
+    <br><br>
+    <% if @users %>
+        <% @users.each do |user| %>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <%= link_to( "Add this member", club_members_path(:action => "create", :user_id => user.id), :method => :post) %>
+                    <strong>Username: <%= user.username %></strong> <br>
+                    First name: <%= user.first_name %>
+                </li>
+            </ul>
+        <% end %>
+    <% end %>
+</div>

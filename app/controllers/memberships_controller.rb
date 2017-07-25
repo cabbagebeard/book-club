@@ -1,8 +1,14 @@
 class MembershipsController < ApplicationController
-    def create
-        @user = User.find_by_email(params[:email])
-        @user = User.find_by_username(params[:username])
+    def new
+        @club = Club.find(params[:club_id])
         
+        if params[:username].present? and params[:username].length > 2
+            @users = User.where("username LIKE ?" , "%#{params[:username]}%")
+        end
+    end
+    
+    def create
+        @user = User.find(params[:user_id])
         @club = Club.find(params[:club_id])
         
         if @user.memberships.find_by_club_id(@club.id)
@@ -12,7 +18,7 @@ class MembershipsController < ApplicationController
             @membership = @user.memberships.build(:club_id => @club.id)
         end
         
-        if @membership.save
+        if @membership and @membership.save
             flash[:notice] = "You have added #{@user.username} to the club."
             redirect_to :back
         else
