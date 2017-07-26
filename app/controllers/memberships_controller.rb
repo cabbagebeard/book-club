@@ -15,8 +15,8 @@ class MembershipsController < ApplicationController
 
         if @membership and @membership.save
             flash[:success] = "You have added #{@user.username} to the club."
-            redirect_to :back
-        else
+            redirect_to edit_club_path(:id => @club.id)
+            else
             if @user.memberships.find_by_club_id(@club.id)
                 flash[:danger] = "This user is already a member."
                 redirect_to :back
@@ -25,5 +25,17 @@ class MembershipsController < ApplicationController
               redirect_to :back
             end
         end
+    end
+    
+    def show
+        @club = Club.find(params[:club_id])
+        @membership = @club.memberships.find(params[:id])
+    end
+    
+    def destroy
+        @club = Club.find(params[:club_id])
+        @club.memberships.find(params[:membership_id]).destroy
+        flash[:success] = "Member has been kicked."
+        redirect_to :back
     end
 end

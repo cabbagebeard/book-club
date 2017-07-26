@@ -17,16 +17,22 @@
             
             <br><br> 
             
-            <h1>Members</h1>
+            <h3><%= @club.users.count %> Members</h3>
             <%= button_to "Add member", new_club_member_path(:club_id => @club.id), :method => :get %>
             <div class="row">
                 <% @club.users.each do |user| %>
                     <div class="col-lg-2 col-md-2 col-sm-3">
-                        <p><%= user.username %></p>
-                        
-                        <% membership = @club.memberships.where(:user_id => user.id).first %>
-                        <p class="text-muted">Member since <%= time_ago_in_words(membership.created_at) %> ago.</p>
-                        
+                        <div class="text-left">
+                            <p style="margin-bottom: -2px"><%= user.username %></p>
+                            
+                            <% membership = @club.memberships.where(:user_id => user.id).first %>
+                            <% if membership.admin %>
+                                <strong>Admin</strong>
+                            <% end %>
+                            <p class="text-muted">Member since <%= time_ago_in_words(membership.created_at) %> ago.</p>
+                            <%= button_to "Kick", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete,
+                                                    :confirm => "Are you sure you want to kick this person?" %>
+                        </div>
                     </div>
                 <% end %>
             </div>
