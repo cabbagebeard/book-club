@@ -19,7 +19,17 @@
             
             <h1>Members</h1>
             <%= button_to "Add member", new_club_member_path(:club_id => @club.id), :method => :get %>
-            
+            <div class="row">
+                <% @club.users.each do |user| %>
+                    <div class="col-lg-2 col-md-2 col-sm-3">
+                        <p><%= user.username %></p>
+                        
+                        <% membership = @club.memberships.where(:user_id => user.id).first %>
+                        <p class="text-muted">Member since <%= time_ago_in_words(membership.created_at) %> ago.</p>
+                        
+                    </div>
+                <% end %>
+            </div>
         <% end %>
     </div>
 </div>
