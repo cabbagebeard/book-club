@@ -38,8 +38,14 @@
                                      <%= link_to "Leave", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete %>
                                 <% else %>
                                     <%= link_to "Kick", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete %>
-                                     | 
-                                    <%= link_to "Make Admin", club_member_make_admin_path(:club_id => @club.id, :member_id => membership.id), :method => :post %>
+                                    
+                                    <% if membership.admin %>
+                                         | 
+                                         <%= link_to "De-Admin", club_member_del_admin_path(:club_id => @club.id, :member_id => membership.id), :method => :post %>
+                                    <% else %>
+                                         | 
+                                        <%= link_to "Make Admin", club_member_make_admin_path(:club_id => @club.id, :member_id => membership.id), :method => :post %>
+                                    <% end %>
                                 <% end %>
                         </div>
                     </div>

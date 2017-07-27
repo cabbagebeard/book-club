@@ -49,6 +49,23 @@ class MembershipsController < ApplicationController
         redirect_to :back
     end
     
+    def del_admin
+        @club = Club.find(params[:club_id])
+        @membership = @club.memberships.find(params[:member_id])
+        if @club.memberships.find_by_user_id(current_user.id).admin == true
+            if @membership.admin
+                @membership.admin = false
+                @membership.save
+                flash[:success] = "Member has been stripped of admin rights."
+            else
+                flash[:success] = "This member cannot be stripped of admin rights."
+            end
+        else
+            flash[:danger] = "You do not have permission."
+        end
+        redirect_to :back
+    end
+    
     def destroy
         @club = Club.find(params[:club_id])
         @membership = @club.memberships.find(params[:membership_id])
