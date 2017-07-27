@@ -26,6 +26,8 @@
                                 <% membership = @club.memberships.where(:user_id => user.id).first %>
                                 <% if membership.admin %>
                                     <strong>Admin</strong>
+                                <% else %>
+                                    <br> <!--for formatting consistency-->
                                 <% end %>
                                 <% if user == current_user %>
                                     <p style="margin-bottom: -2px"><strong>Me</strong> (<%= current_user.username %>)</p>
