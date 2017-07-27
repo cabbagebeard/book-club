@@ -1,7 +1,7 @@
 <% @title = @club.name + " Settings" %>
 <div class="container">
     <div id="club_admin">
-        <% if @club.memberships.find_by_user_id(current_user.id).admin == false then %>
+        <% if @club.memberships.find_by_user_id(current_user.id).admin == false %>
         
             <p>You are not an admin of this book club.</p>
             <%= link_to "Go back to club page", @club %>
@@ -23,15 +23,24 @@
                 <% @club.users.each do |user| %>
                     <div class="col-lg-2 col-md-2 col-sm-3">
                         <div class="text-left">
-                            <p style="margin-bottom: -2px"><%= user.username %></p>
-                            
-                            <% membership = @club.memberships.where(:user_id => user.id).first %>
-                            <% if membership.admin %>
-                                <strong>Admin</strong>
-                            <% end %>
-                            <p class="text-muted">Member since <%= time_ago_in_words(membership.created_at) %> ago.</p>
-                            <%= button_to "Kick", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete,
-                                                    :confirm => "Are you sure you want to kick this person?" %>
+                                <% membership = @club.memberships.where(:user_id => user.id).first %>
+                                <% if membership.admin %>
+                                    <strong>Admin</strong>
+                                <% end %>
+                                <% if user == current_user %>
+                                    <p style="margin-bottom: -2px"><strong>Me</strong> (<%= current_user.username %>)</p>
+                                <% else %>
+                                    <p style="margin-bottom: -2px"><%= user.username %></p>
+                                <% end %>
+                                <p class="text-muted">Member since <%= time_ago_in_words(membership.created_at) %> ago.</p>
+                                
+                                <% if user == current_user %>
+                                     <%= link_to "Leave", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete %>
+                                <% else %>
+                                    <%= link_to "Kick", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete %>
+                                     | 
+                                    <%= link_to "Make Admin", club_member_make_admin_path(:club_id => @club.id, :member_id => membership.id), :method => :post %>
+                                <% end %>
                         </div>
                     </div>
                 <% end %>

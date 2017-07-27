@@ -32,10 +32,33 @@ class MembershipsController < ApplicationController
         @membership = @club.memberships.find(params[:id])
     end
     
+    def make_admin
+        @club = Club.find(params[:club_id])
+        @membership = @club.memberships.find(params[:member_id])
+        if @club.memberships.find_by_user_id(current_user.id).admin == true
+            if @membership.admin == false
+                @membership.admin = true
+                @membership.save
+                flash[:success] = "Member has been made admin."
+            else
+                flash[:success] = "This member is already an admin."
+            end
+        else
+            flash[:danger] = "You do not have permission."
+        end
+        redirect_to :back
+    end
+    
     def destroy
         @club = Club.find(params[:club_id])
-        @club.memberships.find(params[:membership_id]).destroy
-        flash[:success] = "Member has been kicked."
+        @membership = @club.memberships.find(params[:membership_id])
+        if @membership.user == current_user
+            @membership.destroy
+            flash[:danger] = "You have left the club."
+        else
+            @membership.destroy
+            flash[:success] = "Member has been kicked."
+        end
         redirect_to :back
     end
 end
