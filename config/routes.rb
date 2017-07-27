@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :clubs do
       resources :members, :controller => "memberships" do
         post "make_admin"
+        post "del_admin"
       end
       resources :books do
         resources :discussions do
