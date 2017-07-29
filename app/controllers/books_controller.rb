@@ -38,7 +38,8 @@ class BooksController < ApplicationController
             set_current = @club.readings.find_by_book_id(@book.id)
             set_current.current = true
             set_current.save
-            redirect_to @club
+            redirect_to club_book_path(:id => @book.id)
+            flash[:success] = "This book has been made the club's new reading."
         else
             render 'new'
         end
