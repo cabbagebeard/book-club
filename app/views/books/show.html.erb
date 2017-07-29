@@ -57,9 +57,15 @@
                         
                         <p class="text-muted"><%= d.comments.count %> comments</p>
                         
-                        <button type="button" class="btn btn-default btn-sm">
+                        <a class="btn btn-md btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
-                        </button>
+                        </a>
+                        
+                        <div class="collapse" id="collapseExample">
+                          <div class="well">
+                            ...
+                          </div>
+                        </div>
                     </div>
                  </div>
             <% end %>
