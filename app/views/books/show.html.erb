@@ -57,13 +57,16 @@
                         
                         <p class="text-muted"><%= d.comments.count %> comments</p>
                         
-                        <a class="btn btn-md btn-default" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <a class="btn btn-md btn-default" role="button" data-toggle="collapse" href="#collapse-comment-form" aria-expanded="false" aria-controls="collapseExample">
                             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
                         </a>
                         
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse" id="collapse-comment-form">
                           <div class="well">
-                            ...
+                            <%= form_for new_club_book_discussion_comment_path do |f| %>
+                                <%= f.text_field :body %>
+                                <%= f.submit %>
+                            <% end %>
                           </div>
                         </div>
                     </div>
