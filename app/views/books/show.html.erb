@@ -57,15 +57,15 @@
                         
                         <p class="text-muted"><%= d.comments.count %> comments</p>
                         
-                        <a class="btn btn-md btn-default" role="button" data-toggle="collapse" href="#collapse-comment-form" aria-expanded="false" aria-controls="collapseExample">
+                        <a class="btn btn-md btn-default" role="button" data-toggle="collapse" href="#collapse-comment-form_<%=d.id%>" aria-expanded="false" aria-controls="collapseExample">
                             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
                         </a>
                         
-                        <div class="collapse" id="collapse-comment-form">
+                        <div class="collapse" id="collapse-comment-form_<%=d.id%>">
                           <div class="well">
-                            <%= form_for new_club_book_discussion_comment_path do |f| %>
+                            <%= form_for new_club_book_discussion_comment_path(:book_id => @reading.book.id, :discussion_id => d.id) do |f| %>
                                 <%= f.text_field :body %>
-                                <%= f.submit %>
+                                <%= f.submit :post %>
                             <% end %>
                           </div>
                         </div>
