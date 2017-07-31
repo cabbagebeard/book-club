@@ -64,8 +64,8 @@
                         <div class="collapse" id="collapse-comment-form_<%=d.id%>">
                           <div class="well">
                             <%= form_for new_club_book_discussion_comment_path(:book_id => @reading.book.id, :discussion_id => d.id) do |f| %>
-                                <%= f.text_field :body %>
-                                <%= f.submit :post %>
+                                <%= f.text_field :body, class: "form-control", placeholder: "Write something..." %>
+                                <%= f.submit :Post %>
                             <% end %>
                           </div>
                         </div>
