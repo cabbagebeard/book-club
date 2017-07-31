@@ -55,7 +55,7 @@
                         <%= link_to "Go to discussion", club_book_discussion_path(:book_id => @reading.book.id, :id => d.id) %>
                         <hr>
                         
-                        <p class="text-muted"><%= d.comments.count %> comments</p>
+                        <p class="text-muted"><%= pluralize(d.comments.count, "comment") %></p>
                         
                         <a class="btn btn-md btn-default" role="button" data-toggle="collapse" href="#collapse-comment-form_<%=d.id%>" aria-expanded="false" aria-controls="collapseExample">
                             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
@@ -63,7 +63,7 @@
                         
                         <div class="collapse" id="collapse-comment-form_<%=d.id%>">
                           <div class="well">
-                            <%= form_for new_club_book_discussion_comment_path(:book_id => @reading.book.id, :discussion_id => d.id) do |f| %>
+                            <%= form_for [@club, @book, Discussion.find(d.id), @comment] do |f| %>
                                 <%= f.text_field :body, class: "form-control", placeholder: "Write something..." %>
                                 <%= f.submit :Post %>
                             <% end %>

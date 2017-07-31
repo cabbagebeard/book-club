@@ -51,6 +51,7 @@ class BooksController < ApplicationController
         @reading = @club.readings.where(:book_id => @book.id).first
         
         @discussion = Discussion.new
+        @comment = Comment.new
     end
     
     private
