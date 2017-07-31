@@ -12,6 +12,10 @@ class DiscussionsController < ApplicationController
         
         if @discussion.save
             redirect_to([@club, @book])
+            flash[:success] = "Discussion created!"
+        else
+            redirect_to([@club, @book])
+            flash[:danger] = "Something went wrong while posting your discussion. Please try again."
         end
     end
     
