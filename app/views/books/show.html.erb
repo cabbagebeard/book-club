@@ -54,7 +54,7 @@
                         <br>
                         <%= link_to "Go to discussion", club_book_discussion_path(:book_id => @reading.book.id, :id => d.id) %>
                         <hr>
-                        
+                        <!-- COMMENTS SECTION -->
                         <p class="text-muted"><%= pluralize(d.comments.count, "comment") %></p>
                         
                         <a class="btn btn-md btn-default" role="button" data-toggle="collapse" href="#collapse-comment-form_<%=d.id%>" aria-expanded="false" aria-controls="collapseExample">
@@ -63,9 +63,24 @@
                         
                         <div class="collapse" id="collapse-comment-form_<%=d.id%>">
                           <div class="well">
+                              
                             <%= form_for [@club, @book, Discussion.find(d.id), @comment] do |f| %>
-                                <%= f.text_field :body, class: "form-control", placeholder: "Write something..." %>
+                                <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "Write something..." %>
                                 <%= f.submit :Post %>
+                            <% end %>
+                            
+                            <br>
+                            <% if d.comments.any? %>
+                                <% d.comments.each do |comment| %>
+                                    <div class="panel panel-default">
+                                        <div class="panel panel-body">
+                                            <p class="text-muted small">
+                                                <%= comment.user.username %> says:</p>
+                                            </p>
+                                            <%= comment.body %>
+                                        </div>
+                                    </div>
+                                <% end %>
                             <% end %>
                           </div>
                         </div>
