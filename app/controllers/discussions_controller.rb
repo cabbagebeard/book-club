@@ -31,6 +31,21 @@ class DiscussionsController < ApplicationController
         end
     end
     
+    def update
+    end
+    
+    def destroy
+        @discussion = Discussion.find(params[:discussion_id])
+        if @discussion.user == current_user
+            @discussion.destroy
+            flash[:warning] = "You have deleted your discussion."
+        else
+            flash[:danger] = "You do not have permission to delete this discussion."
+        end
+        redirect_to :back
+    end
+    
+    
     private
     def discussion_params
         params.require(:discussion).permit(:title, :body, :user_id)

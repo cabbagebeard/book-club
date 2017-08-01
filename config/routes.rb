@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       end
       resources :books do
         resources :discussions do
+          delete "destroy"
           resources :comments
         end
       end
