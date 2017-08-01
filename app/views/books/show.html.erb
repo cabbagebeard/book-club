@@ -52,7 +52,8 @@
                         <div id="collapse_<%=d.id%>" class="panel-collapse collapse" role="tabpanel">
                           <div class="panel-body">
                             <% if d.user == current_user %>
-                                <p class="small text-muted">Written by you.<%= link_to "Delete", club_book_discussion_destroy_path(@club, @book, :discussion_id => d.id), :method => :delete %>
+                                <p class="small text-muted">Written by you.
+                                    <small><%= link_to "Delete", club_book_discussion_destroy_path(@club, @book, :discussion_id => d.id), :method => :delete %></small>
                                 </p>
                             <% else %>
                                 <p class="small text-muted">Written by <%= d.user.username %></p>
