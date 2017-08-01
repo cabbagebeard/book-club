@@ -36,6 +36,9 @@
     <div class="row">
         <div class="col-lg-12">
             <h2 class="text-left">Discussions</h2>
+            <% if @reading.discussions.none? %>
+            <p class="lead">There are no discussions yet.</p>
+            <% end %>
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
                     <% @reading.discussions.each do |d|%>
