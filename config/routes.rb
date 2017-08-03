@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   
+  resources :users, :only => [:show]
+  
     resources :clubs do
       resources :members, :controller => "memberships" do
         post "make_admin"
