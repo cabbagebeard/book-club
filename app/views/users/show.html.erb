@@ -1,0 +1,34 @@
+<% @title = @user.username %>
+
+<div class="container">
+    <div class="col-md-12 text-center">
+        <h1><%= @user.username %>'s Profile</h1>
+        <br>
+        <p class="lead"><%= @user.first_name  %> <%= @user.last_name %></p>
+        <% if @user.clubs.none? %>
+            <p>Does not belong to any clubs.</p>
+        <% else %>
+            <p class="lead">Member of:</p>
+            <% @user.clubs.each do |club|%>
+            <div class="col-md-4" style="background:#EBF0FA">
+                
+                <p class="lead"><%= link_to club.name, club_path(:id => club.id) %></p>
+                
+                <p>Members: <%= club.memberships.count %></p>
+                
+                <% if club.readings.any? %>
+                    <p>Current Reading:</p>
+                    <% c = club.readings.where(current: true).first %>
+                    <% current = club.books.find(c.book_id) %>
+                    <p class="small"><em><%= current.title %></em></p>
+                    <p class="small">By: <%= current.author %></p>
+                <% end %>
+            </div>
+            <div class="col-md-4">
+                <!--space-->
+            </div>
+            
+            <% end %>
+        <% end %>
+    </div>
+</div>
