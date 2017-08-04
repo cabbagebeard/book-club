@@ -15,6 +15,17 @@ class CommentsController < ApplicationController
         end
     end
     
+    def destroy
+        @comment = Comment.find(params[:comment_id])
+        if @comment.user == current_user
+            @comment.destroy
+            flash[:warning] = "You have deleted your comment."
+        else
+            flash[:danger] = "You do not have permission to delete this comment."
+        end
+        redirect_to :back
+    end
+    
     
     private
     def comment_params

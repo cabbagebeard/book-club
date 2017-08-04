@@ -85,6 +85,7 @@
                                     <% d.comments.each do |comment| %>
                                         <div class="panel panel-default">
                                             <div class="panel panel-body">
+                                                <small><%= link_to "Delete", club_book_discussion_comment_destroy_path(@club, @book, :discussion_id => d.id, :comment_id => comment.id), :method => :delete %></small>
                                                 <p class="text-muted small">
                                                     <%= comment.created_at.strftime("%b %d") %> <br>
                                                     <%= comment.user.username %> says:
