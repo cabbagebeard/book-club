@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       resources :books do
         resources :discussions do
           delete "destroy"
-          resources :comments
+          resources :comments do
+            delete "destroy"
+          end
         end
       end
     end
