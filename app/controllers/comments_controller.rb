@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
         admin = @club.memberships.find_by_user_id(current_user.id).admin
         if @comment.user == current_user or admin == true
             @comment.destroy
-            flash[:warning] = "You have deleted your comment."
+            flash[:warning] = "You have successfully deleted the comment."
         else
             flash[:danger] = "You do not have permission to delete this comment."
         end
