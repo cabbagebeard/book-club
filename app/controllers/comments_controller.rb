@@ -17,7 +17,9 @@ class CommentsController < ApplicationController
     
     def destroy
         @comment = Comment.find(params[:comment_id])
-        if @comment.user == current_user
+        @club = Club.find(params[:club_id])
+        admin = @club.memberships.find_by_user_id(current_user.id).admin
+        if @comment.user == current_user or admin == true
             @comment.destroy
             flash[:warning] = "You have deleted your comment."
         else
