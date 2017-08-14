@@ -18,7 +18,9 @@
 
 <div class="fluid-container text-center">
 
-    <br><br><br><br><br><br><br>
-    <h3>This is where featured readings and featured public clubs would go.</h3>
+    <br><br><br><br>
+    <% @clubs.each do |club| %>
+        <h3><%= link_to club.name, club  %></h3>
+    <% end %>
     
 </div>
