@@ -16,11 +16,16 @@
 </header>
 
 
-<div class="fluid-container text-center">
-
-    <br><br><br><br>
-    <% @clubs.each do |club| %>
-        <h3><%= link_to club.name, club  %></h3>
+<div class="text-center container" style="padding-bottom: 150px">
+    <% if @active_club %>
+        <h3>Recently Active Club:</h3>
+        <div class="col-lg-4 col-md-4 col-sm-3"><!--SPACE FILLER--></div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <h3><%= link_to @active_club.name, @active_club %></h3>
+                <% current_book = @active_club.readings.where(:current => true)[0].book %>
+                <p class="text-muted"><%= link_to current_book.title %></p>
+                <img src="<%= current_book.image %>"  class="img-responsive center-block prev-book-cover">
+            </div>
+        <div class="col-lg-4 col-md-4 col-sm-3"><!--SPACE FILLER--></div>
     <% end %>
-    
 </div>
