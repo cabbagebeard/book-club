@@ -72,10 +72,11 @@ class MembershipsController < ApplicationController
         if @membership.user == current_user
             @membership.destroy
             flash[:danger] = "You have left the club."
+            redirect_to root_path
         else
             @membership.destroy
             flash[:success] = "Member has been kicked."
+            redirect_to :back
         end
-        redirect_to :back
     end
 end
