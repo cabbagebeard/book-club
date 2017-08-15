@@ -59,8 +59,14 @@
         color: #DAF5FF;
     }
 }
+
+.alert-notice {
+    color: #2a52a2;
+    background-color: #EBF0FA;
+    border-color: #aec2ea;
+}
+
 .intro-header {
-  background-color: #777777;
   background: no-repeat center center;
   background-attachment: scroll;
   -webkit-background-size: cover;
@@ -91,7 +97,7 @@
 .intro-header .page-heading h1 {
   margin-top: 0;
   font-size: 50px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #333;
 }
 
 .intro-header .site-heading .subheading,
