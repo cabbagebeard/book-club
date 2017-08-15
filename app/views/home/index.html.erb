@@ -22,9 +22,11 @@
         <div class="col-lg-4 col-md-4 col-sm-3"><!--SPACE FILLER--></div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <h3><%= link_to @active_club.name, @active_club %></h3>
-                <% current_book = @active_club.readings.where(:current => true)[0].book %>
-                <p class="text-muted"><%= link_to current_book.title %></p>
-                <img src="<%= current_book.image %>"  class="img-responsive center-block prev-book-cover">
+                <%= link_to club_book_path(@active_club, @current_book), id: "index-current-book" do %>
+                    <p class="text-muted">Currently reading:</p>
+                    <p class="text-muted"><%= @current_book.title + " by " + @current_book.author %>.</p>
+                    <p class="text-muted"><%= pluralize(@current_reading.discussions.count, "discussion") %></p>
+                <% end %> <!-- end link_to club_book_path -->
             </div>
         <div class="col-lg-4 col-md-4 col-sm-3"><!--SPACE FILLER--></div>
     <% end %>
