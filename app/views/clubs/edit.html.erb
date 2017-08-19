@@ -13,12 +13,12 @@
             <p>This is where you can start new books and edit club settings and members.</p>
             <br><br>
             
-            <%= button_to "Add book", new_club_book_path(:club_id => @club.id), :method => :get %>
+            <%= button_to "Add book", new_club_book_path(:club_id => @club.id), :method => :get, class: "btn btn-primary" %>
             
             <br><br> 
             
             <h3><%= @club.users.count %> Members</h3>
-            <%= button_to "Add member", new_club_member_path(:club_id => @club.id), :method => :get %>
+            <%= button_to "Add member", new_club_member_path(:club_id => @club.id), :method => :get, class: "btn btn-primary" %>
             <div class="row">
                 <% @club.users.each do |user| %>
                     <div class="col-lg-2 col-md-2 col-sm-3">
