@@ -37,7 +37,35 @@
                                 <p class="text-muted">Member since <%= time_ago_in_words(membership.created_at) %> ago.</p>
                                 
                                 <% if user == current_user %>
-                                     <%= link_to "Leave", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete %>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#leaveClub">
+                                    Leave
+                                 </button>
+                                  <div class="modal fade" id="leaveClub" tabindex="-1" role="dialog" aria-labelledby="leaveClub" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="leaveClub"Leave Club</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h2>Are you sure you want to leave the club?</h2>
+                                            <% if @club.memberships.count == 1 %>
+                                            <br>
+                                                <p>You are the last member of this club. Leaving will disban the club.</p>
+                                            <% end %>
+                                          <br>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <p>
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Stay!</button>
+                                            <%= button_to "Leave the club", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete, class:"btn btn-danger" %>
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                                 <% else %>
                                     <%= link_to "Kick", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete %>
                                     
