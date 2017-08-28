@@ -71,6 +71,10 @@ class MembershipsController < ApplicationController
         @membership = @club.memberships.find(params[:membership_id])
         if @membership.user == current_user
             @membership.destroy
+            if @club.memberships.count == 0 
+                @club.destroy
+                flash[:danger] = "The club has been disbanded."
+            end
             flash[:danger] = "You have left the club."
             redirect_to root_path
         else
