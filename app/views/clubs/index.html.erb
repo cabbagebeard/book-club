@@ -9,9 +9,8 @@
             <div class="jumbotron">
                 <p class="lead">Looks like you aren't a member of any clubs yet.</p>
                 <br>
-                <p class="lead">How about starting one of your own?
-                    <%= button_to "New Club", new_club_path, class: "btn btn-info" %>
-                </p>
+                <p class="lead">How about starting one of your own?</p>
+                <%= link_to "New Club", new_club_path, class: "btn btn-info" %>
             </div>
         <% end %>
         
