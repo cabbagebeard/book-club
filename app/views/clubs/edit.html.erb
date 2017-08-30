@@ -9,7 +9,8 @@
             <% else %>
             
             <h1>Admin control page</h1>
-            <br>
+            <%= link_to "Back to club page", @club %>
+            <br><br>
             <p>This is where you can start new books and edit club settings and members.</p>
             <br><br>
             
@@ -37,7 +38,7 @@
                                 <p class="text-muted">Member since <%= time_ago_in_words(membership.created_at) %> ago.</p>
                                 
                                 <% if user == current_user %>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#leaveClub">
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#leaveClub">
                                     Leave
                                  </button>
                                   <div class="modal fade" id="leaveClub" tabindex="-1" role="dialog" aria-labelledby="leaveClub" aria-hidden="true">
@@ -67,14 +68,12 @@
                                     </div>
                                   </div>
                                 <% else %>
-                                    <%= link_to "Kick", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete %>
+                                    <%= link_to "Kick", club_member_path(:club_id => @club.id, :membership_id => membership.id), :method => :delete, class: "btn btn-danger btn-sm" %>
                                     
                                     <% if membership.admin %>
-                                         | 
-                                         <%= link_to "De-Admin", club_member_del_admin_path(:club_id => @club.id, :member_id => membership.id), :method => :post %>
+                                         <%= link_to "De-Admin", club_member_del_admin_path(:club_id => @club.id, :member_id => membership.id), :method => :post, class: "btn btn-danger btn-sm" %>
                                     <% else %>
-                                         | 
-                                        <%= link_to "Make Admin", club_member_make_admin_path(:club_id => @club.id, :member_id => membership.id), :method => :post %>
+                                        <%= link_to "Make Admin", club_member_make_admin_path(:club_id => @club.id, :member_id => membership.id), :method => :post, class: "btn btn-info btn-sm" %>
                                     <% end %>
                                 <% end %>
                         </div>
