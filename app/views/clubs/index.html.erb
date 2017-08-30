@@ -2,10 +2,10 @@
 <div class="container">
     <div id="my_clubs">
         <h1>My Clubs</h1>
+        <br><br>
         <% memberships = current_user.memberships %>
         
         <% if memberships.count == 0 %>
-        <br><br>
             <div class="jumbotron">
                 <p class="lead">Looks like you aren't a member of any clubs yet.</p>
                 <br>
@@ -17,12 +17,14 @@
         <div class="row">
             <% memberships.each do |m| %>
             <% club = current_user.clubs.find(m.club_id) %>
-                <div class="col-lg-4 col-md-4">
-                    <h3><%= link_to club.name, club  %></h3>
-                    <% if m.admin == true then %>
-                        <p><strong>You are an admin</strong></p>
-                    <% end %>
-                    <p>Members: <%= club.memberships.count %></p>
+                <div class="col md-offset-4 col-md-4 col-md-offset-4">
+                    <div class="jumbotron">
+                        <h3><%= link_to club.name, club  %></h3>
+                        <% if m.admin == true then %>
+                            <p><strong>You are an admin</strong></p>
+                        <% end %>
+                        <p>Members: <%= club.memberships.count %></p>
+                    </div>
                 </div>
             <% end %>
         </div>
