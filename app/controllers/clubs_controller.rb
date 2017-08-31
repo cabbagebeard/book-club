@@ -38,7 +38,7 @@ class ClubsController < ApplicationController
         if ad.admin = true then
             render 'edit'
         else
-            flash[:alert] = "You are not an admin of this club."
+            flash[:danger] = "You are not an admin of this club."
             redirect_to @club
         end
     end
