@@ -11,16 +11,20 @@ class ClubsController < ApplicationController
     
     def create
         @club = current_user.clubs.build(club_params)
-        current_user.clubs << @club
-        
-        ad = @club.memberships.find_by_user_id(current_user.id)
-        ad.admin = true
-        ad.save!
         
         if @club.save
+            current_user.clubs << @club
+            ad = @club.memberships.find_by_user_id(current_user.id)
+            ad.admin = true
+            ad.save!
             redirect_to @club
         else
-            render 'new'
+            if @club.errors.any?
+                @club.errors.full_messages.each do |msg|
+                  flash[:danger] = msg
+              end
+             end
+            redirect_to new_club_path
         end
     end
     
