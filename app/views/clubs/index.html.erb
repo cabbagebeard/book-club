@@ -2,6 +2,7 @@
 <div class="container">
     <div id="my_clubs">
         <h1>My Clubs</h1>
+        <%= link_to "New Club", new_club_path, class: "btn btn-primary" %>
         <br><br>
         <% memberships = current_user.memberships %>
         
