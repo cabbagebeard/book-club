@@ -2,7 +2,7 @@ class AnnouncementsController < ApplicationController
     def new
         @club = Club.find(params[:club_id])
         
-        @announcement = @club.announcements.build(announcement_params)
+        @announcement = Announcement.new
     end
     
     def create
