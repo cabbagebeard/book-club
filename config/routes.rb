@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:show]
   
     resources :clubs do
+      resources :announcements
       resources :members, :controller => "memberships" do
         post "make_admin"
         post "del_admin"
