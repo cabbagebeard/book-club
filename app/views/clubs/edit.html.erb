@@ -15,6 +15,8 @@
             <br><br>
             
             <%= button_to "Add book", new_club_book_path(:club_id => @club.id), :method => :get, class: "btn btn-primary" %>
+            <br>
+            <%= button_to "Make announcement", new_club_announcement_path(:club_id => @club.id), :method => :get, class: "btn btn-info" %>
             
             <br><br> 
             
