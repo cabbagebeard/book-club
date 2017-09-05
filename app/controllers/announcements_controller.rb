@@ -1,4 +1,5 @@
 class AnnouncementsController < ApplicationController
+    before_action :authenticate_user!
     def new
         @club = Club.find(params[:club_id])
         
