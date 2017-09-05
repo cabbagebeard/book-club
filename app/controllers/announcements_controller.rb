@@ -2,17 +2,16 @@ class AnnouncementsController < ApplicationController
     def new
         @club = Club.find(params[:club_id])
         
-        @announcement = Announcement.new
+        @announcement = @club.announcements.build
     end
     
     def create
         @club = Club.find(params[:club_id])
         
         @announcement = @club.announcements.build(announcement_params)
-        @club.announcements << @announcement
-        @announcement.user_id << current_user.id
+        @announcement.user_id = current_user.id
         
-        if @discussion.save
+        if @announcement.save
             redirect_to(@club)
             flash[:success] = "Announcement created!"
         else
