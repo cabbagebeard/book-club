@@ -20,7 +20,7 @@
             
             <br><br> 
             
-            <h3><%= pluralize(@club.users.count, "member") %></h3>
+            <h3><%= pluralize(@club.users.count, "member") %><p class="text-muted">(20 max)</p></h3>
             <%= button_to "Add member", new_club_member_path(:club_id => @club.id), :method => :get, class: "btn btn-primary" %>
             <div class="row">
                 <% @club.users.each do |user| %>
