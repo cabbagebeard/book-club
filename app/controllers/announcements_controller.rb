@@ -20,6 +20,11 @@ class AnnouncementsController < ApplicationController
             flash[:danger] = "Something went wrong while posting your announcement. Please try again."
         end
     end
+    
+    def index
+        @club = Club.find(params[:club_id])
+        @announcements = @club.announcements
+    end
 
 private
     def announcement_params
