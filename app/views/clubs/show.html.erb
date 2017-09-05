@@ -10,12 +10,14 @@
                 method: "get", class: "btn btn-primary btn-md" %>
             <% end %>
             <br>
-            <div style="background: #EEEEEE">
-                <% if @club.description? %>
+            <% if @club.description? %>
+                <div style="background: #f6f6f6">
                     <p>Description:</p>
                     <p class="text-muted small"><%= @club.description %></p>
-                <% end %>
-            </div>
+                </div>
+            <% end %>
+            <br>
+            <%= link_to "View Announcements", club_announcements_path(:club_id => @club.id), class: "btn btn-default" %>
         </div>
     </div>
     
