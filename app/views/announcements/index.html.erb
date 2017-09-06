@@ -7,9 +7,11 @@
         <% if @announcements.any? %>
             <% @announcements.each do |a| %>
                 <div class="jumbotron">
-                        <p class="text-muted"><%= a.user.username %></p>
-                        <p class="text-muted"><%= a.created_at.strftime("%b %d") %></p>
-                        <br>
+                        <p class="text-muted">
+                            <%= a.user.username %>
+                            <br>
+                            <%= time_ago_in_words(a.created_at) %>
+                        </p>
                         <h2><%= a.subject %></h2>
                         <p class="lead"><%= a.body %></p>
                 </div>
