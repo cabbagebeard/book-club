@@ -94,7 +94,7 @@
                                                     <% end %>
                                                 </small>
                                                 <p class="text-muted small">
-                                                    <%= comment.created_at.strftime("%b %d") %> <br>
+                                                    <%= time_ago_in_words(comment.created_at) %> <br>
                                                     <%= comment.user.username %> says:
                                                 </p>
                                                 <%= comment.body %>
