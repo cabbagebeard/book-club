@@ -10,7 +10,7 @@
                         <p class="text-muted">
                             <%= a.user.username %>
                             <br>
-                            <%= time_ago_in_words(a.created_at) %> ago
+                            <%= time_ago_in_words(a.created_at) %> ago (<%= a.created_at.strftime("%b %e") %>)
                         </p>
                         <h2><%= a.subject %></h2>
                         <p class="lead"><%= a.body %></p>
